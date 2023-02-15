@@ -56,7 +56,7 @@ public class Main {
 					$resultRoman = $romanOperands[0] + $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ СЛОЖЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
-					} else throw new Exception("ОШИБКА СЛОЖЕНИЯ НЕВОЗМОЖНА.");
+					} else throw new Exception("ОШИБКА СЛОЖЕНИЯ НЕВОЗМОЖНА."); // ОШИБКУ СДЕЛАТЬ НИКОГДА НЕ ПОЛУЧИТСЯ.
 				}
 				if ($scanner.contains("-")) {
 					$resultRoman = $romanOperands[0] - $romanOperands[1];
