@@ -62,19 +62,19 @@ public class Main {
 					$resultRoman = $romanOperands[0] - $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ ВЫЧИТАНИЯ: " + $romanNumbers[$resultRoman - 1]);
-					} else throw new Exception("ОШИБКА ВЫЧИТАНИЯ. Результат операции с РИМСКИМИ числами меньше нуля.");
+					} else throw new Exception("ОШИБКА ВЫЧИТАНИЯ. Результат операции с РИМСКИМИ числами меньше единицы.");
 				}
 				if ($scanner.contains("*")) {
 					$resultRoman = $romanOperands[0] * $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ УМНОЖЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
-					} else throw new Exception("ОШИБКА УМНОЖЕНИЯ. Результат операции с РИМСКИМИ числами меньше нуля.");
+					} else throw new Exception("ОШИБКА УМНОЖЕНИЯ НЕВОЗМОЖНА."); // ОШИБКУ СДЕЛАТЬ НИКОГДА НЕ ПОЛУЧИТСЯ.
 				}
 				if ($scanner.contains("/")) {
 					$resultRoman = $romanOperands[0] / $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ ДЕЛЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
-					} else throw new Exception("ОШИБКА ДЕЛЕНИЯ. Результат операции с РИМСКИМИ числами меньше нуля.");
+					} else throw new Exception("ОШИБКА ДЕЛЕНИЯ. Результат операции с РИМСКИМИ числами меньше единицы.");
 				}
 			} else throw new Exception("Введены НЕПРАВИЛЬНЫЕ ОПЕРАНДЫ или их КОЛИЧЕСТВО.");
 
