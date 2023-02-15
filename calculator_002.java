@@ -42,7 +42,7 @@ public class Main {
 				}
 			}
 //			System.out.println("РИМСКИХ цифр: " + $romanCounter + " шт.");
-			if ($arabicCounter == 2 && $iDigits.length == 2) { // ПРОВЕРКА НА ОДИНАКОВЫЕ ЦИФРЫ И ПРОВЕРКА НА НЕ БОЛЕЕ 2 ОПЕРАНДОВ РАЗНЫХ СИСТЕМ.
+			if ($arabicCounter == 2 && $iDigits.length == 2) { // ВЫВЕСТИ ОШИБКУ, если ввести разные цифры, или ввести более 2 операндов разных систем.
 				if ($scanner.contains("+"))
 					System.out.println("РЕЗУЛЬТАТ СЛОЖЕНИЯ: " + ($arabicOperands[0] + $arabicOperands[1]));
 				if ($scanner.contains("-"))
@@ -51,7 +51,7 @@ public class Main {
 					System.out.println("РЕЗУЛЬТАТ УМНОЖЕНИЯ: " + ($arabicOperands[0] * $arabicOperands[1]));
 				if ($scanner.contains("/"))
 					System.out.println("РЕЗУЛЬТАТ ДЕЛЕНИЯ: " + ($arabicOperands[0] / $arabicOperands[1]));
-			} else if ($romanCounter == 2 && $iDigits.length == 2) {
+			} else if ($romanCounter == 2 && $iDigits.length == 2) { // ВЫВЕСТИ ОШИБКУ, если ввести разные цифры, или ввести более 2 операндов разных систем.
 				if ($scanner.contains("+")) {
 					$resultRoman = $romanOperands[0] + $romanOperands[1];
 					if ($resultRoman > 0) {
@@ -79,7 +79,7 @@ public class Main {
 			} else throw new Exception("Введены НЕПРАВИЛЬНЫЕ ОПЕРАНДЫ или их КОЛИЧЕСТВО.");
 
 		} catch (Exception $exception) {
-			System.out.println($exception);
+			System.out.println($exception); // ВЫВЕСТИ ОШИБКУ, если ввести более 2 операндов одной системы.
 //			System.out.println($exception.getMessage());
 		}
 
