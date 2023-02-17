@@ -4,15 +4,17 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner $sc = new Scanner(System.in);
-//		System.out.println("ВВЕДИТЕ ДВА ОПЕРАНДА от 1 до 10. НАПРИМЕР (2 + 2 или II + II).");
-//		System.out.println("ПОДДЕРЖИВАЮТСЯ АРАБСКИЕ И РИМСКИЕ ЦИФРЫ.");
 		String $scanner = $sc.nextLine();
 
 		$calc($scanner);
 
 	}
 
-	public static void $calc(String $scanner) { // ВНИМАНИЕ. Переменная $scanner это не placeholder. Название должно совпадать с переданным в методе.
+	public static void $calc(String $this) {
+
+// ВНИМАНИЕ. Сначала запускается (Scanner), потом выводятся строки.
+//		System.out.println("ВВЕДИТЕ ДВА ОПЕРАНДА от 1 до 10. НАПРИМЕР (2 + 2 или II + II).");
+//		System.out.println("ПОДДЕРЖИВАЮТСЯ АРАБСКИЕ И РИМСКИЕ ЦИФРЫ.");
 
 		String[] $arabicNumbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 		String[] $romanNumbers = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL", "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX", "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX", "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX", "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC", "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
@@ -24,7 +26,7 @@ public class Main {
 
 		try {
 
-			String[] $iDigits = $scanner.split("\\+|\\-|\\*|\\/");
+			String[] $iDigits = $this.split("\\+|\\-|\\*|\\/");
 			for (String $a : $iDigits) {
 				$a = $a.trim();
 				for (int $b = 0; $b < $romanNumbers.length; $b++) {
@@ -43,34 +45,34 @@ public class Main {
 			}
 //			System.out.println("РИМСКИХ цифр: " + $romanCounter + " шт.");
 			if ($arabicCounter == 2 && $iDigits.length == 2) { // ВЫВЕСТИ ОШИБКУ, если ввести разные цифры, или ввести более 2 операндов разных систем.
-				if ($scanner.contains("+"))
+				if ($this.contains("+"))
 					System.out.println("РЕЗУЛЬТАТ СЛОЖЕНИЯ: " + ($arabicOperands[0] + $arabicOperands[1]));
-				if ($scanner.contains("-"))
+				if ($this.contains("-"))
 					System.out.println("РЕЗУЛЬТАТ ВЫЧИТАНИЯ: " + ($arabicOperands[0] - $arabicOperands[1]));
-				if ($scanner.contains("*"))
+				if ($this.contains("*"))
 					System.out.println("РЕЗУЛЬТАТ УМНОЖЕНИЯ: " + ($arabicOperands[0] * $arabicOperands[1]));
-				if ($scanner.contains("/"))
+				if ($this.contains("/"))
 					System.out.println("РЕЗУЛЬТАТ ДЕЛЕНИЯ: " + ($arabicOperands[0] / $arabicOperands[1]));
 			} else if ($romanCounter == 2 && $iDigits.length == 2) { // ВЫВЕСТИ ОШИБКУ, если ввести разные цифры, или ввести более 2 операндов разных систем.
-				if ($scanner.contains("+")) {
+				if ($this.contains("+")) {
 					$resultRoman = $romanOperands[0] + $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ СЛОЖЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
 					} else throw new Exception("ОШИБКА СЛОЖЕНИЯ НЕВОЗМОЖНА."); // ОШИБКУ СДЕЛАТЬ НИКОГДА НЕ ПОЛУЧИТСЯ.
 				}
-				if ($scanner.contains("-")) {
+				if ($this.contains("-")) {
 					$resultRoman = $romanOperands[0] - $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ ВЫЧИТАНИЯ: " + $romanNumbers[$resultRoman - 1]);
 					} else throw new Exception("ОШИБКА ВЫЧИТАНИЯ. Результат операции с РИМСКИМИ числами меньше единицы.");
 				}
-				if ($scanner.contains("*")) {
+				if ($this.contains("*")) {
 					$resultRoman = $romanOperands[0] * $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ УМНОЖЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
 					} else throw new Exception("ОШИБКА УМНОЖЕНИЯ НЕВОЗМОЖНА."); // ОШИБКУ СДЕЛАТЬ НИКОГДА НЕ ПОЛУЧИТСЯ.
 				}
-				if ($scanner.contains("/")) {
+				if ($this.contains("/")) {
 					$resultRoman = $romanOperands[0] / $romanOperands[1];
 					if ($resultRoman > 0) {
 						System.out.println("РЕЗУЛЬТАТ ДЕЛЕНИЯ: " + $romanNumbers[$resultRoman - 1]);
